@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { ApolloProvider, Query } from "@apollo/react-components";
+import client from "./apollo/apollo-config";
+import gql from "graphql-tag";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ApolloProvider client={client}>
+      <div>
+        <Query
+          query={gql`
+            {
+              chats(userId: 2) {
+                id
+                name
+                picture
+                time
+              }
+            }
+          `}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {({ data, loading, error }) => {
+            if (loading) return <h2>Loading</h2>;
+            if (error) return <h2>{JSON.stringify(error)}</h2>;
+            return <h2>{`My first ${JSON.stringify(data.chats)} app 🚀`}</h2>;
+          }}
+        </Query>
+      </div>
+    </ApolloProvider>
   );
 }
-
+// {
+//   chats(userId: 2) {
+//     id
+//     name
+//     picture
+//     time
+//   }
+// }
 export default App;

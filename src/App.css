@@ -1,38 +1,56 @@
-.App {
-  text-align: center;
+#html {
+  background: linear-gradient(225deg, #f16529, #ff8e93);
+}
+#css {
+  background: linear-gradient(#2965f1, #5183f7);
+}
+#vue {
+  background: linear-gradient(#d2fcad, #22eaeb);
+}
+#react {
+  background: linear-gradient(#61dbfb, #9de5f7);
+}
+#js {
+  background: linear-gradient(#f0db4f, rgb(243, 225, 109));
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+section > div {
+  font-size: 18px !important;
+  max-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  position: absolute;
+  top: 0;
+  height: 55px;
+  left: 0;
+  right: 0;
+  background-color: #33333370;
+  z-index: 999;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.header h3 {
+  cursor: pointer;
+  padding: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-icon-container {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 2px;
+  color: #fff !important;
+}
+
+.header-icon-container .icon {
+  font-size: 25px;
+}
+
+.header-icon-container:hover {
+  background-color: #ffffff50;
 }
